@@ -26,6 +26,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: udaysh/hello-world-python:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python:latest
 
 

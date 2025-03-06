@@ -16,11 +16,11 @@ jobs:
       run: docker build -t hello-world-python .
 
     - name: Log in to Docker Hub
-      run: echo "$DOCKERHUB_TOKEN" | docker login -u $DOCKERHUB_USERNAME --password-stdin
+      run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
     - name: Tag Docker image
-      run: docker tag hello-world-python $DOCKERHUB_USERNAME/hello-world-python
+      run: docker tag hello-world-python ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python
 
     - name: Push Docker image to Docker Hub
-      run: docker push $DOCKERHUB_USERNAME/hello-world-python
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python
 

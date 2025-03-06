@@ -38,6 +38,8 @@ jobs:
           echo "Repository Path: ${{ github.repository_path }}"
           echo "First Style: $MY_VAR"
           echo "Second Style: ${{ env.MY_VAR }}"
+          pwd
+          ls -l
          
           
         

@@ -25,7 +25,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v6
         env:
-          BUILD_ID: ${{ github.run_number }}
+          BUILD_ID: "uday"
         # with:
         #   push: true
         #   tags: ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python:latest

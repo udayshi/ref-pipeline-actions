@@ -30,6 +30,6 @@ jobs:
         #   push: true
         #   tags: ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python:latest
       - run: |
-         docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python:${{env.BUILD_ID}}
+         docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python:${{env.BUILD_ID}} .
          docker push ${{ secrets.DOCKERHUB_USERNAME }}/hello-world-python:${{env.BUILD_ID}}
 

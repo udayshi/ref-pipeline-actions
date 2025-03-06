@@ -1,0 +1,26 @@
+name: Build and Publish Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Build Docker image
+      run: docker build -t hello-world-python .
+
+    - name: Log in to Docker Hub
+      run: echo "$DOCKERHUB_TOKEN" | docker login -u $DOCKERHUB_USERNAME --password-stdin
+
+    - name: Tag Docker image
+      run: docker tag hello-world-python $DOCKERHUB_USERNAME/hello-world-python
+
+    - name: Push Docker image to Docker Hub
+      run: docker push $DOCKERHUB_USERNAME/hello-world-python
+
